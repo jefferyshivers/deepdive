@@ -102,13 +102,12 @@ function load_artist_page() {
 							var src = 'https://www.youtube.com/embed/' + content_obj['url']
 
 
-							/// left section
-
 							$('<div/>', {
 					    	'class':'youtube-content-item',
 					    	'id':key
 							}).appendTo('.inner-body .contents')
 
+							/// left section
 							var content_left_id = key + 'content-left'
 							$('<div/>', {
 					    	'class':'content-left',
@@ -162,12 +161,10 @@ function load_artist_page() {
 							$('<div/>', {
 					    	'class':'micro',
 					    	'id':like_id
-					    	// 'text':'lk'
 							}).appendTo('#' + inner_div_id)
 							$('<i/>', {
 					    	'class':'material-icons',
 					    	'text':'favorite'
-					    	// 'text':'lk'
 							}).appendTo('#' + like_id)
 
 
@@ -545,21 +542,14 @@ function load_artist_page() {
 
 							$('<img/>', {
 								'src':url,
-					    	'style':'position:relative:top:0;width:120%;height:auto;z-index:49;'
+					    	'style':'position:relative;top:0;width:100%;height:auto;z-index:49;'
 							}).appendTo('#' + this_icon_id)
 
 						})
 
-
 					}
 
-
 				})
-
-
-
-
-
 
 
 		} else {

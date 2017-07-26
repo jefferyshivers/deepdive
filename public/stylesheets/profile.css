@@ -330,7 +330,7 @@
 	top: 50px;
 	float: middle;
 	width: 100%;
-	min-width: 400px;
+	min-width: 600px;
 	height: calc(100% - 50px);
 	overflow-y: scroll;
 	justify-content: flex-start;
@@ -361,19 +361,7 @@
 
 }
 
-.main > .body > .inner-body > .contents > .contribution-item {
-	position: relative;
-	float: left;
-	width: 90%;
-	height: 150px;	
-	box-shadow: rgba(80,80,80,.5) 0px 0px 8px;
-	background: rgb(80,80,80);
-	margin: 0 auto;
-	margin-left: 15px;
-	margin-right: 15px;
-	margin: 15px;
-	display: none;
-}
+
 
 .main > .body > .inner-body > .contents > .collection-item {
 	position: relative;
@@ -387,4 +375,133 @@
 	z-index: 500;
 	cursor: pointer;
 	box-shadow:rgba(0,0,0,.2) 0 0 10px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.contents .content-left {
+	position: relative;
+	float: left;
+	width: calc((100% - 400px) / 2);
+	min-width: 100px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.content-left > .inner-div {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 150px;
+}
+.content-left > .inner-div > .micro {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+.main > .body > .inner-body > .contents > .youtube-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	height: 250px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: none;
+	color: white;
+}
+
+.contents .content-right {
+	position: relative;
+	float: left;
+	width: calc((100% - 400px) / 2);
+	min-width: 50px;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	font-size: 10pt;
+}
+
+
+
+
+
+
+
+
+.main > .body > .inner-body > .contents > .imgur-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	height: 250px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: none;
+	color: white;
+}
+
+
+.main > .body > .inner-body > .contents > .twitter-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: none;
+	color: white;
+}
+
+.twitter-mid {
+	position: relative;
+	float: left;
+	width: 400px;
+}
+
+
+
+
+.main > .body > .inner-body > .contents > .instagram-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: none;
+	color: white;
+}
+
+.instagram-mid {
+	position: relative;
+	float: left;
+	width: 400px;
 }

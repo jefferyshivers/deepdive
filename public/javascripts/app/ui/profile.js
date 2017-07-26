@@ -26,9 +26,9 @@ function load_profile_page() {
 			var followers = user_object['followers']
 			var following = user_object['following']
 			var moments = user_object['moments']
-			var contents = user_object['added-contents']
 			var username = user_object['username']
 			var collections = user_object['collections']
+
 
 			$('#username').text(username)
 
@@ -56,42 +56,386 @@ function load_profile_page() {
 			var num_likes = Math.floor(Math.random()*400) + 400
 			$('#likes').text(num_likes)			
 
+
+
+
+
+			// populate the contens
+
+			var contents = users_objects['opyTWqnX6iRAccyri7FThLogR6H2']['added-contents']
 			var content_keys = Object.keys(contents)
-			for (i=0;i<content_keys.length;i++) {
-				var content_key = content_keys[i]
-				if (content_key != 'dummy') {
-					content_object = contents[content_key]
+			content_keys.sort( function() { return 0.5 - Math.random() } );
 
-					var artist = content_object['artist']
-					var moment = content_object['moment']
 
-					$('<div/>', {
-						'class':'contribution-item',
-						'id':content_key
-					}).data('artist',artist).appendTo('.inner-body .contents')
-
-				}
-			}
+			// get contents via artists
 
 			var artists = firebase.database().ref('artists')
 			artists.once('value').then(function(snapshot){
-
 				var val = snapshot.val()
+
 				for (i=0;i<content_keys.length;i++){
 
-					if (content_keys[i] != 'dummy') {
+					if (content_keys[i] != 'dummy' && i < 10) {
 						var key = content_keys[i]
 						var content_object = contents[key]
 						var artist = content_object['artist']
 						var moment = content_object['moment']
-						console.log(moment)
-						var content_full_obj = val[artist]['moments'][moment]['content'][key]
-						var contentName = content_full_obj['contentName']
-						$('#' + key).text(artist + ": " + contentName)
+						var content_obj = val[artist]['moments'][moment]['content'][key]
+
+
+						if (content_obj['platform'] == 'youtube') {
+
+							var src = 'https://www.youtube.com/embed/' + content_obj['url']
+
+							$('<div/>', {
+					    	'class':'youtube-content-item',
+					    	'id':key
+							}).appendTo('.inner-body .contents')
+
+							/// left section
+							var content_left_id = key + 'content-left'
+							$('<div/>', {
+					    	'class':'content-left',
+					    	'id':content_left_id
+							}).appendTo('#' + key)	
+
+							var inner_div_id = content_left_id + '-inner'
+							$('<div/>', {
+					    	'class':'inner-div',
+					    	'id':inner_div_id
+							}).appendTo('#' + content_left_id)
+
+							// up
+							var up_id = inner_div_id + '-up'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':up_id
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'arrow_drop_up',
+					    	'style':'font-size:36pt;'
+							}).appendTo('#' + up_id)
+
+							// number of votes
+							var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+							$('<div/>', {
+					    	'class':'micro',
+					    	'text':vote_num
+							}).appendTo('#' + inner_div_id)
+
+							// down
+							var down_id = inner_div_id + '-down'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':down_id
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'arrow_drop_down',
+					    	'style':'font-size:36pt;'
+							}).appendTo('#' + down_id)
+
+							// gutter
+							$('<div/>', {
+					    	'class':'micro'
+							}).appendTo('#' + inner_div_id)
+
+							// like
+							var like_id = inner_div_id + '-like'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':like_id
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'favorite'
+							}).appendTo('#' + like_id)
+
+
+
+							// video section
+
+							$('<iframe/>', {
+					    	'style':'float:left;width:400px;height:250px;frameborder:none;allowfullscreen;box-shadow:rgba(0,0,0,.2) 0 0 10px;',
+					    	'src':src
+							}).appendTo('#' + key)
+
+
+							// // right section
+
+							// var content_right_id = key + 'content-right'
+							// $('<div/>', {
+					  //   	'class':'content-right',
+					  //   	'id':content_right_id
+							// }).appendTo('#' + key)	
+
+							// $('<div/>', {
+					  //   	'text':username
+							// }).appendTo('#' + content_right_id)
+
+						// ends if (youtube)
+						} else {
+
+							if (content_obj['platform'] == 'soundcloud') {
+
+								/////// IMGUR ///////
+
+								// var src = 'https://www.youtube.com/embed/' + content_obj['url']
+
+								/// left section
+								$('<div/>', {
+						    	'class':'imgur-content-item',
+						    	'id':key
+								}).appendTo('.inner-body .contents')
+
+
+								var content_left_id = key + 'content-left'
+								$('<div/>', {
+						    	'class':'content-left',
+						    	'id':content_left_id
+								}).appendTo('#' + key)	
+
+								var inner_div_id = content_left_id + '-inner'
+								$('<div/>', {
+						    	'class':'inner-div',
+						    	'id':inner_div_id
+								}).appendTo('#' + content_left_id)
+
+								// up
+								var up_id = inner_div_id + '-up'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':up_id
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'arrow_drop_up',
+						    	'style':'font-size:36pt;'
+								}).appendTo('#' + up_id)
+
+								// number of votes
+								var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+								$('<div/>', {
+						    	'class':'micro',
+						    	'text':vote_num
+								}).appendTo('#' + inner_div_id)
+
+								// down
+								var down_id = inner_div_id + '-down'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':down_id
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'arrow_drop_down',
+						    	'style':'font-size:36pt;'
+								}).appendTo('#' + down_id)
+
+								// gutter
+								$('<div/>', {
+						    	'class':'micro'
+								}).appendTo('#' + inner_div_id)
+
+								// like
+								var like_id = inner_div_id + '-like'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':like_id
+						    	// 'text':'lk'
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'favorite'
+						    	// 'text':'lk'
+								}).appendTo('#' + like_id)
+
+
+
+								// audio section
+								var src = content_obj['url']
+								var block_id = key + '-block'
+								$('<iframe/>', {
+									'src':src,
+									'style':'width:400px; height:250px; scrolling:no; frameborder:no;'
+								}).appendTo('#' + key)
+
+
+
+							// ends if (soundcloud)
+							} else {
+
+								if (content_obj['platform'] == 'instagram') {
+
+									/// left section
+
+									$('<div/>', {
+							    	'class':'instagram-content-item',
+							    	'id':key
+									}).appendTo('.inner-body .contents')
+
+									var content_left_id = key + 'content-left'
+									$('<div/>', {
+							    	'class':'content-left',
+							    	'id':content_left_id
+									}).appendTo('#' + key)	
+
+									var inner_div_id = content_left_id + '-inner'
+									$('<div/>', {
+							    	'class':'inner-div',
+							    	'id':inner_div_id
+									}).appendTo('#' + content_left_id)
+
+									// up
+									var up_id = inner_div_id + '-up'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':up_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_up',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + up_id)
+
+									// number of votes
+									var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+									$('<div/>', {
+							    	'class':'micro',
+							    	'text':vote_num
+									}).appendTo('#' + inner_div_id)
+
+									// down
+									var down_id = inner_div_id + '-down'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':down_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_down',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + down_id)
+
+									// gutter
+									$('<div/>', {
+							    	'class':'micro'
+									}).appendTo('#' + inner_div_id)
+
+									// like
+									var like_id = inner_div_id + '-like'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':like_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'favorite'
+									}).appendTo('#' + like_id)
+
+
+									// tweet section
+									var mid_id = key + '-mid'
+									$('<i/>', {
+							    	'class':'instagram-mid',
+							    	'id':mid_id
+									}).appendTo('#' + key)
+									$('#' + mid_id).append(content_obj['url'])
+
+								} else {
+
+									if (content_obj['platform'] == 'twitter') {
+
+
+										/// left section
+
+										$('<div/>', {
+								    	'class':'twitter-content-item',
+								    	'id':key
+										}).appendTo('.inner-body .contents')
+
+										var content_left_id = key + 'content-left'
+										$('<div/>', {
+								    	'class':'content-left',
+								    	'id':content_left_id
+										}).appendTo('#' + key)	
+
+										var inner_div_id = content_left_id + '-inner'
+										$('<div/>', {
+								    	'class':'inner-div',
+								    	'id':inner_div_id
+										}).appendTo('#' + content_left_id)
+
+										// up
+										var up_id = inner_div_id + '-up'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':up_id
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'arrow_drop_up',
+								    	'style':'font-size:36pt;'
+										}).appendTo('#' + up_id)
+
+										// number of votes
+										var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+										$('<div/>', {
+								    	'class':'micro',
+								    	'text':vote_num
+										}).appendTo('#' + inner_div_id)
+
+										// down
+										var down_id = inner_div_id + '-down'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':down_id
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'arrow_drop_down',
+								    	'style':'font-size:36pt;'
+										}).appendTo('#' + down_id)
+
+										// gutter
+										$('<div/>', {
+								    	'class':'micro'
+										}).appendTo('#' + inner_div_id)
+
+										// like
+										var like_id = inner_div_id + '-like'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':like_id
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'favorite'
+										}).appendTo('#' + like_id)
+
+
+										// tweet section
+										var mid_id = key + '-mid'
+										$('<i/>', {
+								    	'class':'twitter-mid',
+								    	'id':mid_id
+										}).appendTo('#' + key)
+										$('#' + mid_id).append(content_obj['url'])
+
+									// ends if (twitter)
+									}
+								// end else from instagram
+								}
+							// ends else from soundcloud
+							}
+						// ends else from (youtube)	
+						}
 					}		
 				}
-
 			})
+
+
 
 
 			// populate collections tab
@@ -198,9 +542,19 @@ function load_profile_page() {
 	})
 }
 
+
+
+
+
+
+
 $('.inner-body .top #contributions').click(function(){
 	$('.inner-body .contents .contribution-item').css('display','block')
-	$('.inner-body .contents .collection-item').css('display','none')
+	$('.inner-body .contents .collection-item').css('display','none')	
+	$('.inner-body .contents .youtube-content-item').css('display','block')	
+	$('.inner-body .contents .instagram-content-item').css('display','block')
+	$('.inner-body .contents .twitter-content-item').css('display','block')
+	$('.inner-body .contents .soundcloud-content-item').css('display','block')
 
 	$('.main .button-container #contributions').css({
 		'color'        : 'rgb(220,220,220)',
@@ -222,6 +576,10 @@ $('.inner-body .top #contributions').click(function(){
 $('.inner-body .top #collections').click(function(){
 	$('.inner-body .contents .collection-item').css('display','block')
 	$('.inner-body .contents .contribution-item').css('display','none')		
+	$('.inner-body .contents .youtube-content-item').css('display','none')
+	$('.inner-body .contents .instagram-content-item').css('display','none')
+	$('.inner-body .contents .twitter-content-item').css('display','none')
+	$('.inner-body .contents .soundcloud-content-item').css('display','none')
 
 	$('.main .button-container #collections').css({
 		'color'        : 'rgb(220,220,220)',
