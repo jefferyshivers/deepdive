@@ -1,0 +1,386 @@
+
+/*MAIN DIV (page minus nav)*/
+.main {
+	clear: both;
+	position: absolute;
+	float: left;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	z-index: 10;
+	background: rgb(220,220,220);
+	background: rgb(80,80,80);
+	background: rgb(40,40,40);
+	overflow: hidden;
+}
+
+
+.main > .left-gutter {
+	position: relative;
+	float: left;
+	top: 0;
+	width: calc((100% - 1000px) / 2);
+	height: 100%;
+}
+
+.main > .body {
+	position: relative;
+	float: left;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: 1000px;
+	height: 100%;
+	max-height: 1000px;
+	overflow: hidden;
+}
+
+.main > .body > .left-nav {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 200px;
+	height: calc(100% - 0px);
+	min-height: 400px;
+	background: rgb(60,60,60);
+	color: white;
+}
+
+.main > .body > .left-nav > .top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 250px;
+}
+.main > .body > .left-nav > .top > .user-icon-container{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main > .body > .left-nav > .top > .user-icon-container > .user-icon {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	border-radius: 60px;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: gray 0 0 5px;
+	overflow: hidden;
+}
+
+.main > .body > .left-nav > .top > .user-name {
+	position: absolute;
+	left: 0;
+	top: 150px;
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+.bottom-sep {
+	position: absolute;
+	left: 10px;
+	top: 190px;
+	width: calc(100% - 20px);
+	height: 8px;
+	border-bottom: 1px solid rgb(140,140,140);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.main > .body > .left-nav > .rest {
+	position: absolute;
+	left: 0;
+	top: 200px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+
+.main > .body > .left-nav > .rest 
+.following, 
+.followers,
+.other {
+	position: relative;
+	float: left;
+	width: 70%;
+	margin-top: 10px; 
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 10pt;
+}
+
+
+/**/
+
+.main > .body > .left-nav > .rest 
+.artistblock {
+	position: relative;
+	float: left;
+	width: 70%;
+	margin-top: 10px; 
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	font-size: 10pt;
+	/*background: red;*/
+	height: 40px;
+}
+
+.main > .body > .left-nav > .rest >.artistblock 
+.nameinblock {
+	position: relative;
+	float: left;
+	width: 100%;
+	margin-top: 0px; 
+	display: flex;
+	align-items: left;
+	justify-content: space-between;
+	font-size: 9pt;
+	/*background: blue;*/
+	height: 50%;
+}
+
+.main > .body > .left-nav > .rest >.artistblock 
+.squareblock {
+	position: absolute;
+	top : 50%;
+	float: left;
+	width: 100%;
+	display: flex;
+	align-items: left;
+	justify-content: space-between;
+	font-size: 10pt;
+	height: 50%;
+}
+
+.main > .body > .left-nav > .rest >.artistblock > .squareblock
+.realsquare {
+	position: relative;
+	float: left;
+	width: 80%;
+	display: flex;
+	align-items: left;
+	background: gray;
+	height: 100%;
+}
+.main > .body > .left-nav > .rest >.artistblock > .squareblock
+.realsquare .percentage {
+	position: relative;
+	float: left;
+	display: flex;
+	align-items: left;
+	background: lightgray;
+	background: linear-gradient(to right, rgb(0,100,155), rgb(0,200,255));
+	height: 100%;
+}
+.rest .new-bottom-sep {
+	position: relative;
+	float: left;
+	width: calc(100% - 20px);
+	height: 23px;
+	border-bottom: 1px solid rgb(140,140,140);
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+
+.main > .body > .left-nav > .rest >.artistblock > .squareblock
+.number {
+	position: relative;
+	float: left;
+	width: 20%;
+	display: flex;
+	align-items: left;
+	justify-content: flex-end;
+	font-size: 10pt;
+	/*background: pink;*/
+	height: 100%;
+	color: white;
+}
+
+/**/
+
+
+
+
+.main > .body > .left-nav > .rest .key {
+	position: relative;
+	float: left;
+	height: 50%;
+	display: flex;
+	align-items: center;	
+	justify-content: left;
+	/*background : red;*/
+}
+.main > .body > .left-nav > .rest .value {
+	position: relative;
+	float: left;
+	height: 100%;
+	display: flex;
+	align-items: center;	
+	justify-content: right;
+}
+
+
+
+
+
+
+
+
+
+.main > .body > .inner-body {
+	position: absolute;
+	left: 210px;
+	top: 25px;
+	width: calc(100% - 220px);
+	min-width: 400px;
+	height: calc(100% - 25px);
+	/*box-shadow: rgb(180,180,180) 0px 0px 5px;*/
+	overflow: hidden;
+}
+
+.main > .body > .inner-body > .top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-width: 400px;
+	height: 50px;
+	/*background: white;*/
+	overflow: hidden;
+	box-shadow: rgba(80,80,80,.2) 0px 4px 4px;
+	z-index: 11;
+	display: flex;
+	justify-content: center;
+}
+
+.main .inner-body > .top > .button-container {
+	position: relative;
+	width: 70%;
+	max-width: 400px;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;	
+}
+.main .inner-body > .top > .button-container > .button {
+	position: relative;
+	width: 125px;
+	height: calc(100% - 2px);
+	margin: 0 auto;
+	border-radius: 2px solid transparent;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(220,220,220);
+}
+.main .inner-body > .top > .button-container > .button:hover {
+	color: white;
+}
+
+.main .button-container #contributions {
+	border-bottom: 2px solid transparent;
+}
+
+.main .button-container #collections {
+	border-bottom: 2px solid rgb(0,200,255);
+	color: white;
+}
+
+
+
+
+/*.main > .body > .inner-body > .mid {
+	position: relative;
+	top: 50px;
+	float: left;
+	width: 100%;
+	height: 50px;
+	background: rgb(40,40,40);
+}*/
+
+
+
+
+
+
+.main > .body > .inner-body > .contents {
+	position: relative;
+	top: 50px;
+	float: middle;
+	width: 100%;
+	min-width: 400px;
+	height: calc(100% - 50px);
+	overflow-y: scroll;
+	justify-content: flex-start;
+	overflow: scroll;
+
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-justify-content: center;
+	justify-content: center;
+
+	/* You can set flex-wrap and flex-direction individually */
+
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	/* Or do it all in one line with flex flow */
+
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+
+	/* tweak the where items line up on the row */
+	/* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+
+	-webkit-align-content: flex-start;
+	align-content: flex-start;
+
+}
+
+.main > .body > .inner-body > .contents > .contribution-item {
+	position: relative;
+	float: left;
+	width: 90%;
+	height: 150px;	
+	box-shadow: rgba(80,80,80,.5) 0px 0px 8px;
+	background: rgb(80,80,80);
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: none;
+}
+
+.main > .body > .inner-body > .contents > .collection-item {
+	position: relative;
+	width: 200px;
+	height: 200px;
+	box-shadow: rgb(80,80,80) 0px 0px 4px;
+	background: rgb(80,80,80);
+	background: rgb(120,120,120);
+	display: block;
+	margin: 25px;
+	z-index: 500;
+	cursor: pointer;
+	box-shadow:rgba(0,0,0,.2) 0 0 10px;	
+}

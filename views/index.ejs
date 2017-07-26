@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/all.css'/>
+    <link rel='stylesheet' href='/stylesheets/top-nav.css'/>     
+    <link rel='stylesheet' href='/stylesheets/main.css'/>
+    <link rel='stylesheet' href='/stylesheets/frontpage.css'/>    
+    <link rel='stylesheet' href='/stylesheets/search.css'/>
+    <link rel='stylesheet' href='/stylesheets/add.css'/>
+    <link rel='stylesheet' href='/stylesheets/signup-login.css'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  </head>
+
+<!-- Jason's firebase Key -->
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script src="/javascripts/app/db/config.js"></script>
+<!-- /Jason's firebase Key -->
+
+<script src="/javascripts/app/db/auth/bundle.js"></script>
+<script src="/javascripts/app/db/auth/email.js"></script>
+<script src="/javascripts/app/db/search.js"></script>
+
+  <body>
+
+<!-- Facebook SDK, the following should be right after the <body> tag -->
+<script src="/javascripts/app/db/auth/facebookSDK.js"></script> 
+
+
+	<!-- top nav -->
+	  <div class="top-nav">
+	  	<div class="left-gutter"></div>
+	  	<div class="full-container">
+	  		<div class="title-container">
+	  			<a href="/" class="title">DEEPDIVE</a>
+	  		</div>
+	  		<div class="search-container">
+	  			<div class="search">
+	  				<div class="search-icon">
+	  					<i class="material-icon">search</i>
+	  				</div>
+	  				<input type="text" placeholder="Search" class="search-field" id="top-search-field">
+	  			</div>
+	  		</div>
+
+	  		<div class="add-and-user">
+	  			<div class="add-content">
+	  				<i class="material-icon">add_circle_outline</i>
+	  			</div>
+	  			<div class="notifications">
+	  				<i class="material-icon">notifications_none</i>
+	  			</div>		  			
+	  			<div class="user">
+	  				<i class="material-icon">person</i>
+	  			</div>
+	  		</div>
+
+        <div class="signup-or-login">
+          <div class="signup">
+            <div class="text">Join</div>
+            <!-- <i class="material-icon">add_circle_outline</i> -->
+          </div>
+          <div class="login">
+            <div class="text">Log in</div>
+            <!-- <i class="material-icon">notifications_none</i> -->
+          </div>            
+        </div>
+
+	  	</div>
+	  </div>
+
+  	<div class="dropdown-container">
+  		<div class="left-gutter"></div>
+  		<div class="full-container">
+  			<div class="dropdown-user">
+  		  	<div class="title">
+  					<div class="title-text">profile</div>
+  					<div class="settings">
+  						<i class="material-icon">settings</i>
+  					</div>
+  				</div>	
+          <div class="rest">
+            <div id="dropdown-login-container">
+              <input type="text" id="submit-login-name" name="dropdown-login-username-input" placeholder="email">
+              <input type="password" id="submit-login-password" name="dropdown-login-password-input" placeholder="password">
+              <a href="#">Create a new account</a>
+            </div>
+            <div id="dropdown-profile-container">
+              <a href="#" onclick="userSignOut()">Sign out</a>
+            </div>            
+          </div>	
+  			</div>
+  			<div class="dropdown-notifications">
+  				<div class="title">
+  					<div class="title-text">notifications</div>
+  					<div class="settings">
+  						<i class="material-icon">settings</i>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
+  <!-- add container -->
+  	<div class="add-container">
+  		<div class="add-form">
+  			<div class="top">
+  				<div class="title">Add</div>
+  				<div class="content-or-moment">
+  					<div class="button" id="add-form-content-button">Content</div>
+  					<div class="button" id="add-form-moment-button">Moment</div>
+  				</div>
+  			</div>
+  			<div class="rest">
+          <div class="content">
+            <div class="field">
+              <div class="query-label">Artist</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-artist_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Title</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-title_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Platform</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-platform_query">
+            </div>
+            
+            <div class="field">
+              <div class="query-label">Type</div>
+              <input type="text" placeholder="ex: &quot;https://youtu.be/pyViesxqHTM&quot;" class="query" id="add-form-content-type_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">URL</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-url_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Moment</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-moment_query">
+            </div>
+
+            <div class="field" id="add-form-add-content-button">
+              <i class="material-icon">add_circle_outline</i>
+            </div>
+
+          </div>
+  				<div class="moment">
+  					<div class="field">
+  						<div class="query-label">Artist</div>
+  						<input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-moment-artist_query">
+  					</div>
+  					<div class="field">
+  					  <div class="query-label">Moment</div>
+  						<input type="text" placeholder="ex: &quot;Boys Don't Cry&quot;, &quot;haircut&quot;" class="query" id="add-form-moment-moment_query">
+  					</div>
+  					<div class="field" id="add-form-add-moment-button">
+  						<i class="material-icon">add_circle_outline</i>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+
+
+
+
+
+
+
+  	<div class="login-container">
+  		<div class="login-form">
+  			<div class="top"></div>
+  			<div class="rest"></div>
+  		</div>
+  	</div>
+
+  	<div class="signup-container">
+  		<div class="signup-form">
+  			<div class="top">Sign up</div>
+  			<div class="fields">
+          <div class="email">
+            <div class="field-top">Email</div>
+            <div class="inputs">
+              <input type="text" placeholder="email" id="signup-form-email">
+              <input type="password" placeholder="password" id="signup-form-password">
+              <div class="button">Submit</div>         
+            </div>
+          </div>
+          <div class="median"></div>
+          <div class="facebook">
+            <div class="field-top">Facebook</div>
+            <div class="inputs">
+              <div id="signup-with-facebook">Sign up with Facebook</div>
+            </div>
+          </div>
+        </div>
+  		</div>
+  	</div>
+
+  </body>
+
+	<!-- main body -->
+	  <div class="main">
+	  	<div class="left-gutter"></div>
+	  	<div class="body">
+        <div class="front-page-top">
+          <div class="upper">
+            Welcome to DeepDive
+          </div>
+          <div class="lower">
+            <div class="left">Today's Featured Artists</div>
+            <div class="right">Thursday, July 27, 2017</div>
+          </div>
+        </div>
+        <div class="front-page-main">
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+          <div class="front-page-cell">
+            <a class="item"></a>
+          </div>
+        </div>        
+      </div>
+	  </div>
+
+
+	<!-- scripts -->
+	  <script src="/javascripts/lib/jquery-3.2.1.min.js"></script>
+		<script src="/javascripts/app/ui/top-nav.js"></script>
+		<script src="/javascripts/app/ui/main.js"></script>
+    <script src='/javascripts/app/ui/search.js'></script>
+    <script src='/javascripts/app/ui/add.js'></script>
+    <script src='/javascripts/app/ui/signup.js'></script>
+    <script src='/javascripts/app/ui/login.js'></script>
+    <script src='/javascripts/app/loadpage.js'></script>
+    <script src='/javascripts/app/db/vote.js'></script>
+    <script src='/javascripts/app/db/follow.js'></script>
+    <script src='/javascripts/app/db/like.js'></script>
+    <script src='/javascripts/app/db/collection.js'></script>
+    <script>
+      loadpage()
+      loadpage_MAIN()
+    </script>
+  </body>
+
+</html>

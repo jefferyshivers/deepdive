@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/all.css'/>
+    <link rel='stylesheet' href='/stylesheets/top-nav.css'/>     
+    <link rel='stylesheet' href='/stylesheets/search.css'/>
+    <link rel='stylesheet' href='/stylesheets/add.css'/>
+    <link rel='stylesheet' href='/stylesheets/artist.css'/>    
+    <link rel='stylesheet' href='/stylesheets/signup-login.css'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  </head>
+
+<!-- Jason's firebase Key -->
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script src="/javascripts/app/db/config.js"></script>
+<!-- /Jason's firebase Key -->
+<script src="/javascripts/app/db/auth/email.js"></script>
+
+
+
+
+
+
+  <!-- top nav -->
+    <div class="top-nav">
+      <div class="left-gutter"></div>
+      <div class="full-container">
+        <div class="title-container">
+          <a href="/" class="title">DEEPDIVE</a>
+        </div>
+        <div class="search-container">
+          <div class="search">
+            <div class="search-icon">
+              <i class="material-icon">search</i>
+            </div>
+            <input type="text" placeholder="Search" class="search-field" id="top-search-field">
+          </div>
+        </div>
+
+        <div class="add-and-user">
+          <div class="add-content">
+            <i class="material-icon">add_circle_outline</i>
+          </div>
+          <div class="notifications">
+            <i class="material-icon">notifications_none</i>
+          </div>            
+          <div class="user">
+            <i class="material-icon">person</i>
+          </div>
+        </div>
+
+        <div class="signup-or-login">
+          <div class="signup">
+            <div class="text">Join</div>
+            <!-- <i class="material-icon">add_circle_outline</i> -->
+          </div>
+          <div class="login">
+            <div class="text">Log in</div>
+            <!-- <i class="material-icon">notifications_none</i> -->
+          </div>            
+        </div>
+
+      </div>
+    </div>
+
+    <div class="dropdown-container">
+      <div class="left-gutter"></div>
+      <div class="full-container">
+        <div class="dropdown-user">
+          <div class="title">
+            <div class="title-text">profile</div>
+            <div class="settings">
+              <i class="material-icon">settings</i>
+            </div>
+          </div>  
+          <div class="rest">
+            <div id="dropdown-login-container">
+              <input type="text" id="submit-login-name" name="dropdown-login-username-input" placeholder="email">
+              <input type="password" id="submit-login-password" name="dropdown-login-password-input" placeholder="password">
+              <a href="#">Create a new account</a>
+            </div>
+            <div id="dropdown-profile-container">
+              <a href="#" onclick="userSignOut()">Sign out</a>
+            </div>            
+          </div>  
+        </div>
+        <div class="dropdown-notifications">
+          <div class="title">
+            <div class="title-text">notifications</div>
+            <div class="settings">
+              <i class="material-icon">settings</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- add container -->
+    <div class="add-container">
+      <div class="add-form">
+        <div class="top">
+          <div class="title">Add</div>
+          <div class="content-or-moment">
+            <div class="button" id="add-form-content-button">Content</div>
+            <div class="button" id="add-form-moment-button">Moment</div>
+          </div>
+        </div>
+        <div class="rest">
+          <div class="content">
+            <div class="field">
+              <div class="query-label">Artist</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-artist_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Title</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-title_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Platform</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-platform_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Type</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-type_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">URL</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-url_query">
+            </div>
+
+            <div class="field">
+              <div class="query-label">Moment</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-content-moment_query">
+            </div>
+
+            <div class="field" id="add-form-add-content-button">
+              <i class="material-icon">add_circle_outline</i>
+            </div>
+
+          </div>
+          <div class="moment">
+            <div class="field">
+              <div class="query-label">Artist</div>
+              <input type="text" placeholder="ex: &quot;Frank Ocean&quot;, &quot;Drake&quot;" class="query" id="add-form-moment-artist_query">
+            </div>
+            <div class="field">
+              <div class="query-label">Moment</div>
+              <input type="text" placeholder="ex: &quot;Boys Don't Cry&quot;, &quot;haircut&quot;" class="query" id="add-form-moment-moment_query">
+            </div>
+            <div class="field" id="add-form-add-moment-button">
+              <i class="material-icon">add_circle_outline</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-container">
+      <div class="login-form">
+        <div class="top"></div>
+        <div class="rest"></div>
+      </div>
+    </div>
+
+    <div class="signup-container">
+      <div class="signup-form">
+        <div class="top">Sign up</div>
+        <div class="fields">
+          <div class="email">
+            <div class="field-top">Email</div>
+            <div class="inputs">
+              <input type="text" placeholder="email" id="signup-form-email">
+              <input type="password" placeholder="password" id="signup-form-password">
+              <div class="button">Submit</div>         
+            </div>
+          </div>
+          <div class="median"></div>
+          <div class="facebook">
+            <div class="field-top">Facebook</div>
+            <div class="inputs">
+              <div id="signup-with-facebook">Sign up with Facebook</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+
+
+
+
+
+  <!-- main body -->
+    <div class="main">
+      <div class="left-gutter"></div>
+      <div class="body">
+        <div class="left-nav">
+
+
+
+          <div class="top">
+            <div class="artist-icon-container">
+              <div class="artist-icon"></div>
+            </div>
+            <div class="user-name" id="username"></div>
+            <div class="bottom-sep"></div>
+          </div>
+
+
+
+          <div class="rest">
+
+            <div class="other">
+              <div class="key">Trending</div>
+              <div class="value" id="trending"></div>
+            </div>
+
+            <div class="other">
+              <div class="key">DeepFans</div>
+              <div class="value" id="deepfans"></div>
+            </div>
+
+            <!-- <div style="font-size:9pt;float:left;width:70%;color:rgb(220,220,220);">more ></div> -->
+            <div class="artist-platform-meta">
+              <div class="meta-icon" id="meta-icon-one"></div>
+              <div class="meta-icon" id="meta-icon-two"></div>
+              <div class="meta-icon" id="meta-icon-three"></div>
+            </div>
+
+            <div class="top-contributors">
+              <!-- <div class="your-rank">Your Rank</div> -->
+              <div class="rest-title">
+                <div class="title-top">Top Contributors</div>
+                <div class="title-level">level</div>
+                <div class="title-username">username</div>
+              </div>
+              <div class="cont-rest">
+                <div class="inner">
+                  <!-- load contributors here -->                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="inner-body">
+          <div class="top">
+            <div class="meta">
+              <div class="name"></div>
+              <div class="genre"></div>
+            </div>
+            <div class="sort-selection">
+
+<!--               <div class="search-artist-query">
+                  <div class="search">
+                    <div class="search-icon">
+                      <i class="material-icon">search</i>
+                    </div>
+                    <input type="text" placeholder="Search" class="search-field" id="top-search-field">
+                  </div>
+              </div> -->
+
+              <div class="selection">
+                <div class="selection-text">Top Content</div>
+                <div class="dropdown-icon">
+                  <i class="material-icon">keyboard_arrow_down</i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contents">
+          </div>
+        </div>  
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- scripts -->
+    <script src="/javascripts/lib/jquery-3.2.1.min.js"></script>  
+    <script src="/javascripts/app/ui/top-nav.js"></script>
+    <script src="/javascripts/app/ui/main.js"></script>
+    <script src='/javascripts/app/ui/search.js'></script>
+    <script src='/javascripts/app/ui/add.js'></script>
+    <script src='/javascripts/app/ui/signup.js'></script>
+    <script src='/javascripts/app/ui/login.js'></script>
+    <script src='/javascripts/app/loadpage.js'></script>
+    <script src='/javascripts/app/db/vote.js'></script>    
+    <script src='/javascripts/app/ui/artist.js'></script>
+    <script src='/javascripts/app/db/vote.js'></script>
+    <script src='/javascripts/app/db/follow.js'></script>
+    <script src='/javascripts/app/db/like.js'></script>
+    <script src='/javascripts/app/ui/collection.js'></script>    
+    <script>
+      loadpage()
+      load_artist_page()
+    </script>
+    <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+  </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

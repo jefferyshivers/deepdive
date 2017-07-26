@@ -1,0 +1,361 @@
+
+/* TOP NAV */
+.top-nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	z-index: 30;
+	box-shadow: rgba(0,0,0,.2) 0 2px 3px;
+	background: rgb(60,60,60);
+}
+
+input {
+	margin:0;
+	padding:0;
+	border:none;
+} input:focus {
+	outline: none;
+	background: rgb(250,250,250);
+}
+
+/* title */
+
+.top-nav > .left-gutter {
+	clear: both;
+	position: relative;
+	float: left;
+	width: calc((100% - 1000px) / 2);
+	min-width: 0;
+	height: 100%;
+}
+
+.top-nav > .full-container {
+	position: relative;
+	float: left;
+	width: 100%;
+	max-width: 1000px;
+	height: 100%;
+}
+
+.top-nav > .full-container > .title-container {
+	position: relative;
+	float: left;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.top-nav > .full-container > .title-container > .title {
+	color: rgb(80,80,80);
+	color: white;
+	font-size: 14pt;
+	cursor: pointer;
+}
+
+
+
+/* search bar */
+
+.top-nav > .full-container > .search-container {
+	position: relative;
+	float: left;
+	width: calc(100% - 300px);
+	min-width: 200px;
+	max-width: 700px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.top-nav > .full-container > .search-container > .search {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 25px;
+	border: 1px solid rgb(200,200,200);
+	height: 50%;
+	overflow: hidden;
+}
+.top-nav .search > .search-icon {
+	position: relative;
+	float: left;
+	width: 39px;
+	height: 100%;
+	border-right: 1px solid rgb(200,200,200);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background: rgb(250,250,250);
+	background: transparent;
+}
+.top-nav .search .material-icon {
+	font-size: 14pt;
+	color: rgb(220,220,220);
+}
+.top-nav .search > .search-field {
+	position: relative;
+	float: left;
+	width: calc(100% - 50px);
+	padding-left: 10px;
+	height: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	cursor: text;
+	overflow: hidden;
+	font-size: 10pt;
+	background: transparent;
+	color: rgb(220,220,220);
+}
+
+
+
+
+.top-nav > .full-container > .add-and-user {
+	position: relative;
+	float: left;
+	width: calc(100% - 300px);
+	max-width: 200px;
+	min-width: 100px;
+	height: 100%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+}
+.top-nav > .full-container > .add-and-user .material-icon {
+	font-size: 18pt;
+	color: rgb(80,80,80);
+	color: rgb(220,220,220);
+	cursor: pointer;
+}
+
+.top-nav > .full-container > .add-and-user > .add-content {
+	position: relative;
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.top-nav > .full-container > .add-and-user > .notifications {
+	position: relative;
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.top-nav > .full-container > .add-and-user > .user {
+	position: relative;
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+.top-nav > .full-container > .signup-or-login {
+	position: relative;
+	float: left;
+	width: calc(100% - 300px);
+	max-width: 200px;
+	min-width: 100px;
+	height: 100%;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	font-size: 9pt;
+}
+.top-nav > .full-container > .signup-or-login > .signup, .login {
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.top-nav .signup-or-login .text {
+	width: 75%;
+	height: 30px;
+	border-radius: 15px;
+	background: rgb(200,200,200);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+
+
+
+
+
+.dropdown-container {
+	clear: both;
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	z-index: 0;
+}
+
+.dropdown-container > .left-gutter {
+	position: relative;
+	float: left;
+	width: calc((100% - 1000px) / 2);
+	min-width: 0;
+	height: 100%;
+}
+
+.dropdown-container > .full-container {
+	position: relative;
+	float: left;
+	width: 100%;
+	max-width: 1000px;
+	height: 100%;
+}
+
+.dropdown-container .dropdown-user, .dropdown-notifications {
+	position: absolute;
+	right: 0;
+	margin-right: 10px;
+	background: white;
+	border-radius: 2px;
+	box-shadow: gray 0px 0px 8px;
+	visibility: hidden;
+	overflow: visible;
+	color: white;
+}
+
+.dropdown-container .dropdown-user {
+	width: 200px;
+	background: rgb(80,80,80);
+	height: auto;
+	color: white;
+}
+
+.dropdown-container .dropdown-notifications {
+	width: 300px;
+	height: 400px;
+}
+.dropdown-notifications .title {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid rgb(200,200,200);
+}
+.dropdown-notifications .title > .title-text {
+	position: relative;
+	float: left;
+	width: calc(80% - 10px);
+	height: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-left: 10px;
+	font-size: 12pt;
+	color: white;
+}
+.dropdown-notifications .title > .settings {
+	position: relative;
+	float: left;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dropdown-notifications .title > .settings > .material-icon {
+	font-size: 12pt;
+	color: rgb(80,80,80);
+}
+.dropdown-user .title {
+	position: relative;
+	top: 0;
+	width: 100%;
+	height: 30px;
+	border-bottom: 1px solid rgb(200,200,200);
+}
+.dropdown-user .title > .title-text {
+	position: relative;
+	float: left;
+	width: calc(80% - 10px);
+	height: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	padding-left: 10px;
+	font-size: 12pt;
+	color: rgb(80,80,80);
+	color: white;
+}
+.dropdown-user .title > .settings {
+	position: relative;
+	float: left;
+	width: 20%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.dropdown-user .title > .settings > .material-icon {
+	font-size: 12pt;
+	color: rgb(80,80,80);
+	color: white;
+}
+
+.dropdown-user .rest {
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+#dropdown-login-container {
+	position: relative;
+	float: left;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+	visibility: visible;
+}
+#dropdown-login-container input {
+	position: relative;
+	float: left;
+	width: 80%;
+	height: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 1px solid gray;
+	padding-left: 5px;
+}
+#dropdown-login-container a {
+	font-size: 10pt;
+	margin-bottom: 5px;
+}

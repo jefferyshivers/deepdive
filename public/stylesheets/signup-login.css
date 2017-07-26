@@ -1,0 +1,226 @@
+
+
+
+
+.signup-container {
+	clear: both;
+	position: fixed;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	z-index: 0;
+	visibility: hidden;
+	background: rgba(240,240,240,.5);
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.signup-form {
+	position: relative;
+	top: 20px;
+	width: 500px;
+	height: 250px;
+	background: rgb(80,80,80);
+	box-shadow: rgba(200,200,200,1) 0px 0px 8px;
+	border-radius: 10px;
+	color: white;
+}
+
+.signup-form > .top {
+	position: relative;
+	width: 100%;
+	height: 43px;
+	border-bottom: 2px solid rgb(240,240,240);
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.signup-form > .top > .title {
+	position: relative;
+	float: left;
+	width: 200px;
+	height: 100%;
+	font-size: 14pt;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.signup-form > .fields {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100% - 50px);
+}
+
+.signup-form > .fields > .median {
+	position: relative;
+	float: left;
+	width: 4px;
+	height: calc(100% - 4px);
+	background: rgb(240,240,240);
+}
+
+.signup-form > .fields > .email {
+	position: relative;
+	float: left;
+	top: 0;
+	width: calc(50% - 2px);
+	height: 100%;
+}
+
+.signup-form > .fields > .facebook {
+	position: relative;
+	float: left;
+	top: 0;
+	width: calc(50% - 2px);
+	height: 100%;
+}
+
+.signup-form .field-top {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 50px;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.signup-form .fields .inputs {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100% - 50px);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+.signup-form > .fields > .email input {
+	position: relative;
+	width: 80%;
+	height: 30px;
+	padding-left: 10px;
+	border: 1px solid rgb(220,220,220);
+	margin-bottom: 5px;
+	cursor: text;
+}
+.signup-form > .fields > .email .button {
+	position: relative;
+	width: 30%;
+	height: 30px;
+	border: 1px solid rgb(220,220,220);
+	border-radius: 15px;
+	margin-bottom: 15px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	background: rgb(220,220,220);
+}
+
+
+
+#signup-with-facebook {
+	position: relative;
+	width: 80%;
+	height: 50px;
+	/*color: white;*/
+	border: 2px solid gray;
+	border-radius: 25px;
+	font-size: 10pt;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	margin-bottom: 15px;
+	cursor: pointer;
+	background: rgb(100,200,255);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.login-container {
+	clear: both;
+	position: fixed;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	z-index: 0;
+	visibility: hidden;
+	background: rgba(240,240,240,.5);
+	display: flex;
+	justify-content: center;
+}
+
+
+
+.login-form {
+	position: relative;
+	top: 20px;
+	width: 500px;
+	height: 300px;
+	background: rgb(80,80,80);
+	box-shadow: rgba(200,200,200,1) 0px 0px 8px;
+	color: rgb(240,240,240);
+}
+
+.login-form > .top {
+	position: relative;
+	width: 100%;
+	height: 43px;
+	border-bottom: 2px solid rgb(240,240,240);
+	padding: 5px;
+}
+.login-form > .top > .title {
+	position: relative;
+	float: left;
+	width: 500px;
+	height: 100%;
+	font-size: 14pt;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+.login-form > .rest {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 50px);
+}
+
+.login-form > .rest > .content {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	visibility: visible;
+}
+
+.login-form > .rest > .moment {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+}
