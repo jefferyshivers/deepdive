@@ -12,6 +12,7 @@
 	background: rgb(80,80,80);
 	background: rgb(40,40,40);
 	overflow: hidden;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 
 
@@ -85,6 +86,7 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
+  font-family: 'Rajdhani', sans-serif;	
 }
 .bottom-sep {
 	position: absolute;
@@ -112,6 +114,7 @@
 .main > .body > .left-nav > .rest 
 .following, 
 .followers,
+.likes,
 .other {
 	position: relative;
 	float: left;
@@ -184,14 +187,15 @@
 	display: flex;
 	align-items: left;
 	background: lightgray;
-	background: linear-gradient(to right, rgb(0,100,155), rgb(0,200,255));
+	background: linear-gradient(to right, rgb(0,200,155), rgb(0,200,255));
+	background: rgb(0,200,255);
 	height: 100%;
 }
 .rest .new-bottom-sep {
 	position: relative;
 	float: left;
 	width: calc(100% - 20px);
-	height: 23px;
+	height: 10px;
 	border-bottom: 1px solid rgb(140,140,140);
 	display: flex;
 	align-items: flex-start;
@@ -225,7 +229,6 @@
 	display: flex;
 	align-items: center;	
 	justify-content: left;
-	/*background : red;*/
 }
 .main > .body > .left-nav > .rest .value {
 	position: relative;
@@ -234,6 +237,7 @@
 	display: flex;
 	align-items: center;	
 	justify-content: right;
+	color: rgb(0,200,255);
 }
 
 

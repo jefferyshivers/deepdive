@@ -32,17 +32,24 @@ function popup(type,id) {
 	}).appendTo('#popup-container')
 
 
-  for (i=0;i<12;i++) {
-	  var color = Math.floor(Math.random()*100) + 155
-	  var style = 'background:radial-gradient(rgba(0,200,' + color + ',.8), rgba(0,200,255,.5)'  
+	$('<img/>', {
+		// 'class': css_class
+		'src':'/images/collections/collection-preview.png',
+		'style':'position:relative;top:0;height:100%;width:auto;'
+	}).appendTo('#popup-card')
 
-	  $('<div/>', {
-			'class': 'popup-inner',
-			// 'text':'testttt',
-			'style':style,
-			'id':id
-		}).appendTo('#popup-card')
-  }
+
+  // for (i=0;i<12;i++) {
+	 //  var color = Math.floor(Math.random()*100) + 155
+	 //  var style = 'background:radial-gradient(rgba(0,200,' + color + ',.8), rgba(0,200,255,.5)'  
+
+	 //  $('<div/>', {
+		// 	'class': 'popup-inner',
+		// 	// 'text':'testttt',
+		// 	'style':style,
+		// 	'id':id
+		// }).appendTo('#popup-card')
+  // }
 
 
 }

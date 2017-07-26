@@ -6,7 +6,7 @@ body {
   overflow: hidden;
   background: rgb(240,240,240);
   background: rgb(40,40,40);
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Rajdhani', sans-serif;
   color: rgb(80,80,80);
   /* remove the blue flash from slow links */
   -webkit-tap-hightlight-color: rgba(0,0,0,0) 

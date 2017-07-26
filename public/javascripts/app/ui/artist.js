@@ -97,8 +97,8 @@ function load_artist_page() {
 						var content_obj = artist_obj['moments'][moment]['content'][key]
 						var userkey = content_obj['uid']
 						var username = usernames[userkey]
+
 						if (content_obj['platform'] == 'youtube') {
-							console.log('it is a video!!!')
 							var src = 'https://www.youtube.com/embed/' + content_obj['url']
 
 
@@ -293,39 +293,172 @@ function load_artist_page() {
 							} else {
 
 								if (content_obj['platform'] == 'instagram') {
+									console.log('yes')
+
+									/// left section
+
+									$('<div/>', {
+							    	'class':'instagram-content-item',
+							    	'id':key
+									}).appendTo('.inner-body .contents')
+
+									var content_left_id = key + 'content-left'
+									$('<div/>', {
+							    	'class':'content-left',
+							    	'id':content_left_id
+									}).appendTo('#' + key)	
+
+									var inner_div_id = content_left_id + '-inner'
+									$('<div/>', {
+							    	'class':'inner-div',
+							    	'id':inner_div_id
+									}).appendTo('#' + content_left_id)
+
+									// up
+									var up_id = inner_div_id + '-up'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':up_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_up',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + up_id)
+
+									// number of votes
+									var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+									$('<div/>', {
+							    	'class':'micro',
+							    	'text':vote_num
+									}).appendTo('#' + inner_div_id)
+
+									// down
+									var down_id = inner_div_id + '-down'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':down_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_down',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + down_id)
+
+									// gutter
+									$('<div/>', {
+							    	'class':'micro'
+									}).appendTo('#' + inner_div_id)
+
+									// like
+									var like_id = inner_div_id + '-like'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':like_id
+							    	// 'text':'lk'
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'favorite'
+							    	// 'text':'lk'
+									}).appendTo('#' + like_id)
 
 
 
-// <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:28.125% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BCYQxy7AfPL/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">The making of #ntnfipuddung  link to full video in bio.</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by Daniel Mcgregor (@chinomcgregor) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-02-29T17:47:25+00:00">Feb 29, 2016 at 9:47am PST</time></p></div></blockquote>
-// <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+									// tweet section
+									var mid_id = key + '-mid'
+									$('<i/>', {
+							    	'class':'instagram-mid',
+							    	'id':mid_id
+									}).appendTo('#' + key)
+									$('#' + mid_id).append(content_obj['url'])
+
+								} else {
+
+									if (content_obj['platform'] == 'twitter') {
+
+										/// left section
+
+										$('<div/>', {
+								    	'class':'twitter-content-item',
+								    	'id':key
+										}).appendTo('.inner-body .contents')
+
+										var content_left_id = key + 'content-left'
+										$('<div/>', {
+								    	'class':'content-left',
+								    	'id':content_left_id
+										}).appendTo('#' + key)	
+
+										var inner_div_id = content_left_id + '-inner'
+										$('<div/>', {
+								    	'class':'inner-div',
+								    	'id':inner_div_id
+										}).appendTo('#' + content_left_id)
+
+										// up
+										var up_id = inner_div_id + '-up'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':up_id
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'arrow_drop_up',
+								    	'style':'font-size:36pt;'
+										}).appendTo('#' + up_id)
+
+										// number of votes
+										var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+										$('<div/>', {
+								    	'class':'micro',
+								    	'text':vote_num
+										}).appendTo('#' + inner_div_id)
+
+										// down
+										var down_id = inner_div_id + '-down'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':down_id
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'arrow_drop_down',
+								    	'style':'font-size:36pt;'
+										}).appendTo('#' + down_id)
+
+										// gutter
+										$('<div/>', {
+								    	'class':'micro'
+										}).appendTo('#' + inner_div_id)
+
+										// like
+										var like_id = inner_div_id + '-like'
+										$('<div/>', {
+								    	'class':'micro',
+								    	'id':like_id
+								    	// 'text':'lk'
+										}).appendTo('#' + inner_div_id)
+										$('<i/>', {
+								    	'class':'material-icons',
+								    	'text':'favorite'
+								    	// 'text':'lk'
+										}).appendTo('#' + like_id)
 
 
-									
+										// tweet section
+										var mid_id = key + '-mid'
+										$('<i/>', {
+								    	'class':'twitter-mid',
+								    	'id':mid_id
+										}).appendTo('#' + key)
+										$('#' + mid_id).append(content_obj['url'])
+
+									}
 								}
-
-
-
-
-
-
-
-
-
-
-
-
-								// $('<p/>', {
-						  //   	'class':'content-item',
-						  //   	'text':key
-								// }).appendTo('.inner-body .contents')
-
 							}
-
 						}
-
-
-
-
 					}
 				}
 				// console.log(allcontent)

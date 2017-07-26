@@ -7,6 +7,7 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
+	font-family: 'Source Sans Pro', sans-serif;	
 }
 
 .search-page-container > .search-page-top {
@@ -22,6 +23,7 @@
 	background: rgb(80,80,80);
 	box-shadow: rgba(80,80,80,.2) 0 2px 2px;
 	z-index: 54;
+	font-family: 'Rajdhani', sans-serif;	
 }
 .search-page-top > .query-container {
 	position: relative;
@@ -129,7 +131,6 @@
 	color: white;
 	font-size: 10pt;
 	overflow: hidden;
-	/*background: rgb(80,80,80);*/
 	box-shadow: rgba(80,80,80,.6) 0px 0px 8px;
 	cursor: pointer;
 }
@@ -172,7 +173,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	/*overflow: hidden;*/
 	background: rgb(140,140,140);
 	background: rgb(80,80,80);
 	z-index: 25;
@@ -187,7 +187,6 @@
 	align-items: center;
 	overflow: hidden;
 	z-index: 25;
-	/*background: green;*/
 }
 
 .result-item-container .img-container {

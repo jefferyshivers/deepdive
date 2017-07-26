@@ -53,6 +53,9 @@ function load_profile_page() {
 			var num_following = Math.floor(Math.random()*100) + 35
 			$('#following').text(num_following)
 
+			var num_likes = Math.floor(Math.random()*400) + 400
+			$('#likes').text(num_likes)			
+
 			var content_keys = Object.keys(contents)
 			for (i=0;i<content_keys.length;i++) {
 				var content_key = content_keys[i]
@@ -95,7 +98,7 @@ function load_profile_page() {
 
 			var collection_keys = Object.keys(collections)
 			// for (i=0;i<collection_keys.length;i++) {
-				for (i=0;i<10;i++){
+				for (i=0;i<11;i++){
 				// var collection_key = collection_keys[i]
 				// if (collection_key != 'dummy-collection') {
 					// var collection_object = collections[collection_key]

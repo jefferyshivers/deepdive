@@ -10,21 +10,21 @@
 	justify-content: center;
 	align-items: flex-start;
 	z-index: 50;
-	background: rgba(40,40,40,.5);
+	background: rgba(0,0,0,.5);
 }
 
 #popup-card {
 	position: relative;
 	height: 400px;
 	margin-top: 150px;
-	background: rgb(80,80,80);
-	box-shadow: rgb(80,80,80) 0 0 10px;
+	background: rgb(0,0,0);
+	box-shadow: rgb(0,0,0) 0 0 10px;
 	z-index: 50;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	overflow: scroll;
+	overflow: visible;
 }
 .popup-inner {
 	position: relative;
