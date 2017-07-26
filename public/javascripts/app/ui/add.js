@@ -193,7 +193,6 @@ $('.add-container .content').keypress(function(e) {
 		moment = moment.toLowerCase()
 
 		let url = document.getElementById('add-form-content-url_query').value
-		url = url.toLowerCase()
 
 		let type = document.getElementById('add-form-content-type_query').value
 		type = type.toLowerCase()
