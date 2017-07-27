@@ -83,6 +83,12 @@ function load_profile_page() {
 						var content_obj = val[artist]['moments'][moment]['content'][key]
 
 
+
+
+
+
+
+// from here
 						if (content_obj['platform'] == 'youtube') {
 
 							var src = 'https://www.youtube.com/embed/' + content_obj['url']
@@ -434,7 +440,7 @@ function load_profile_page() {
 					}		
 				}
 			})
-
+// 
 
 
 

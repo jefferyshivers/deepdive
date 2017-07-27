@@ -220,6 +220,8 @@ function contentSearch(content){
 	artistsDB.once('value').then(function(snapshot){
 		var val = snapshot.val()
 		var artistsList = Object.keys(val)
+
+
 		for(i=0; i<artistsList.length; i++){
 			var momentObjects = val[[artistsList[i]]]['moments']
 			var momentValues = Object.values(momentObjects)
@@ -245,59 +247,408 @@ function contentSearch(content){
 
 		if (selectedContentResult.length > 0) {
 
-	  //   $('<div/>', {
-			// 	'class':'content-results'
-			// }).appendTo('.search-page-main')
+		    // add each result
+		    for (i=0; i<selectedContentResult.length; i++) {
 
-	    // add each result
-	    for (i=0; i<selectedContentResult.length; i++) {
-
-	    	if (i < 3) {
-
-
-
-		    	var this_content = selectedContentResult[i]
-		    	var contentName = this_content['contentName']
-
-		    	var nospace_name = contentName.replace(/\s/g,"-")
-		    	nospace_name = nospace_name.replace(/\:/g,"")
-		    	var id = "content-" + nospace_name
-		    	id = id.replace(/\"|\s|\'|\&|\;|\:/g,"")
-
-		    	var col = Math.floor(Math.random() * 80)
-		    	col += 80
-		    	var bg = 'background:rgb(' + '155' + ',' + col + ',' + col + ');'
-		    	var cursor = 'cursor:pointer;'
-		    	var style = bg + cursor
+		    	if (i < 5) {
+// from here		
+					var content_obj = selectedContentResult[i]
+					var key = i + content_obj['platform']
+					if (content_obj['platform'] == 'youtube') {
 
 
-			    $('<div/>', {
-						'class':'result-item-container',
-						'id': id,
-						'style': style
-					}).data("ref",contentName).click(function(event){
-							popup( "content",  $('#' + this.id).data("ref")   )
-					}).appendTo('.content-results')
+						var src = 'https://www.youtube.com/embed/' + content_obj['url']
 
-					var innerID = id + '-inner'
-
-			    $('<div/>', {
-						'class': 'result-item-inner',
-						'id':innerID,
-						'text': contentName
-					}).appendTo('#' + id)
-
-			    $('<div/>', {
-						'class': 'result-item-inner-rest'
-					}).appendTo('#' + innerID)
-			    $('<div/>', {
-						'class': 'result-item-inner-top',
-					}).appendTo('#' + innerID)
+						$('<div/>', {
+				    	'class':'youtube-content-item',
+				    	'id':key
+						}).appendTo('.content-results')
 
 
-	    	}
 
+						/// left section
+						var content_left_id = key + 'content-left'
+						$('<div/>', {
+				    	'class':'content-left',
+				    	'id':content_left_id
+						}).appendTo('#' + key)	
+
+						var inner_div_id = content_left_id + '-inner'
+						$('<div/>', {
+				    	'class':'inner-div',
+				    	'id':inner_div_id
+						}).appendTo('#' + content_left_id)
+
+						// up
+						var up_id = inner_div_id + '-up'
+						$('<div/>', {
+				    	'class':'micro',
+				    	'id':up_id
+						}).appendTo('#' + inner_div_id)
+						$('<i/>', {
+				    	'class':'material-icons',
+				    	'text':'arrow_drop_up',
+				    	'style':'font-size:36pt;'
+						}).appendTo('#' + up_id)
+
+						// number of votes
+						var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+						$('<div/>', {
+				    	'class':'micro',
+				    	'text':vote_num
+						}).appendTo('#' + inner_div_id)
+
+						// down
+						var down_id = inner_div_id + '-down'
+						$('<div/>', {
+				    	'class':'micro',
+				    	'id':down_id
+						}).appendTo('#' + inner_div_id)
+						$('<i/>', {
+				    	'class':'material-icons',
+				    	'text':'arrow_drop_down',
+				    	'style':'font-size:36pt;'
+						}).appendTo('#' + down_id)
+
+						// gutter
+						$('<div/>', {
+				    	'class':'micro'
+						}).appendTo('#' + inner_div_id)
+
+						// like
+						var like_id = inner_div_id + '-like'
+						$('<div/>', {
+				    	'class':'micro',
+				    	'id':like_id
+						}).appendTo('#' + inner_div_id)
+						$('<i/>', {
+				    	'class':'material-icons',
+				    	'text':'favorite'
+						}).appendTo('#' + like_id)
+
+
+
+						// video section
+
+						$('<iframe/>', {
+				    	'style':'float:left;width:400px;height:250px;frameborder:none;allowfullscreen;box-shadow:rgba(0,0,0,.2) 0 0 10px;',
+				    	'src':src
+						}).appendTo('#' + key)
+
+
+						// // right section
+
+						// var content_right_id = key + 'content-right'
+						// $('<div/>', {
+				  //   	'class':'content-right',
+				  //   	'id':content_right_id
+						// }).appendTo('#' + key)	
+
+						// $('<div/>', {
+				  //   	'text':username
+						// }).appendTo('#' + content_right_id)
+
+					// ends if (youtube)
+					} else {
+
+						if (content_obj['platform'] == 'soundcloud') {
+
+							/////// IMGUR ///////
+
+							// var src = 'https://www.youtube.com/embed/' + content_obj['url']
+
+							/// left section
+							$('<div/>', {
+					    	'class':'imgur-content-item',
+					    	'id':key
+							}).appendTo('.content-results')
+
+
+							var content_left_id = key + 'content-left'
+							$('<div/>', {
+					    	'class':'content-left',
+					    	'id':content_left_id
+							}).appendTo('#' + key)	
+
+							var inner_div_id = content_left_id + '-inner'
+							$('<div/>', {
+					    	'class':'inner-div',
+					    	'id':inner_div_id
+							}).appendTo('#' + content_left_id)
+
+							// up
+							var up_id = inner_div_id + '-up'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':up_id
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'arrow_drop_up',
+					    	'style':'font-size:36pt;'
+							}).appendTo('#' + up_id)
+
+							// number of votes
+							var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+							$('<div/>', {
+					    	'class':'micro',
+					    	'text':vote_num
+							}).appendTo('#' + inner_div_id)
+
+							// down
+							var down_id = inner_div_id + '-down'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':down_id
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'arrow_drop_down',
+					    	'style':'font-size:36pt;'
+							}).appendTo('#' + down_id)
+
+							// gutter
+							$('<div/>', {
+					    	'class':'micro'
+							}).appendTo('#' + inner_div_id)
+
+							// like
+							var like_id = inner_div_id + '-like'
+							$('<div/>', {
+					    	'class':'micro',
+					    	'id':like_id
+					    	// 'text':'lk'
+							}).appendTo('#' + inner_div_id)
+							$('<i/>', {
+					    	'class':'material-icons',
+					    	'text':'favorite'
+					    	// 'text':'lk'
+							}).appendTo('#' + like_id)
+
+
+
+							// audio section
+							var src = content_obj['url']
+							var block_id = key + '-block'
+							$('<iframe/>', {
+								'src':src,
+								'style':'width:400px; height:250px; scrolling:no; frameborder:no;'
+							}).appendTo('#' + key)
+
+
+
+						// ends if (soundcloud)
+						} else {
+
+							if (content_obj['platform'] == 'instagram') {
+
+								/// left section
+
+								$('<div/>', {
+						    	'class':'instagram-content-item',
+						    	'id':key
+								}).appendTo('.content-results')
+
+								var content_left_id = key + 'content-left'
+								$('<div/>', {
+						    	'class':'content-left',
+						    	'id':content_left_id
+								}).appendTo('#' + key)	
+
+								var inner_div_id = content_left_id + '-inner'
+								$('<div/>', {
+						    	'class':'inner-div',
+						    	'id':inner_div_id
+								}).appendTo('#' + content_left_id)
+
+								// up
+								var up_id = inner_div_id + '-up'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':up_id
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'arrow_drop_up',
+						    	'style':'font-size:36pt;'
+								}).appendTo('#' + up_id)
+
+								// number of votes
+								var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+								$('<div/>', {
+						    	'class':'micro',
+						    	'text':vote_num
+								}).appendTo('#' + inner_div_id)
+
+								// down
+								var down_id = inner_div_id + '-down'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':down_id
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'arrow_drop_down',
+						    	'style':'font-size:36pt;'
+								}).appendTo('#' + down_id)
+
+								// gutter
+								$('<div/>', {
+						    	'class':'micro'
+								}).appendTo('#' + inner_div_id)
+
+								// like
+								var like_id = inner_div_id + '-like'
+								$('<div/>', {
+						    	'class':'micro',
+						    	'id':like_id
+								}).appendTo('#' + inner_div_id)
+								$('<i/>', {
+						    	'class':'material-icons',
+						    	'text':'favorite'
+								}).appendTo('#' + like_id)
+
+
+								// tweet section
+								var mid_id = key + '-mid'
+								$('<i/>', {
+						    	'class':'instagram-mid',
+						    	'id':mid_id
+								}).appendTo('#' + key)
+								$('#' + mid_id).append(content_obj['url'])
+
+							} else {
+
+								if (content_obj['platform'] == 'twitter') {
+
+
+									/// left section
+
+									$('<div/>', {
+							    	'class':'twitter-content-item',
+							    	'id':key
+									}).appendTo('.content-results')
+
+									var content_left_id = key + 'content-left'
+									$('<div/>', {
+							    	'class':'content-left',
+							    	'id':content_left_id
+									}).appendTo('#' + key)	
+
+									var inner_div_id = content_left_id + '-inner'
+									$('<div/>', {
+							    	'class':'inner-div',
+							    	'id':inner_div_id
+									}).appendTo('#' + content_left_id)
+
+									// up
+									var up_id = inner_div_id + '-up'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':up_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_up',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + up_id)
+
+									// number of votes
+									var vote_num = 3100 - (i * 150 + Math.floor(Math.random()*58))
+									$('<div/>', {
+							    	'class':'micro',
+							    	'text':vote_num
+									}).appendTo('#' + inner_div_id)
+
+									// down
+									var down_id = inner_div_id + '-down'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':down_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'arrow_drop_down',
+							    	'style':'font-size:36pt;'
+									}).appendTo('#' + down_id)
+
+									// gutter
+									$('<div/>', {
+							    	'class':'micro'
+									}).appendTo('#' + inner_div_id)
+
+									// like
+									var like_id = inner_div_id + '-like'
+									$('<div/>', {
+							    	'class':'micro',
+							    	'id':like_id
+									}).appendTo('#' + inner_div_id)
+									$('<i/>', {
+							    	'class':'material-icons',
+							    	'text':'favorite'
+									}).appendTo('#' + like_id)
+
+
+									// tweet section
+									var mid_id = key + '-mid'
+									$('<i/>', {
+							    	'class':'twitter-mid',
+							    	'id':mid_id
+									}).appendTo('#' + key)
+									$('#' + mid_id).append(content_obj['url'])
+
+								// ends if (twitter)
+								}
+							// end else from instagram
+							}
+						// ends else from soundcloud
+						}
+					// ends else from (youtube)	
+					}
+	
+				}
 			}
+// 
+
+			   //  	var this_content = selectedContentResult[i]
+			   //  	var contentName = this_content['contentName']
+
+			   //  	var nospace_name = contentName.replace(/\s/g,"-")
+			   //  	nospace_name = nospace_name.replace(/\:/g,"")
+			   //  	var id = "content-" + nospace_name
+			   //  	id = id.replace(/\"|\s|\'|\&|\;|\:/g,"")
+
+			   //  	var col = Math.floor(Math.random() * 80)
+			   //  	col += 80
+			   //  	var bg = 'background:rgb(' + '155' + ',' + col + ',' + col + ');'
+			   //  	var cursor = 'cursor:pointer;'
+			   //  	var style = bg + cursor
+
+
+				  //   $('<div/>', {
+						// 	'class':'result-item-container',
+						// 	'id': id,
+						// 	'style': style
+						// }).data("ref",contentName).click(function(event){
+						// 		popup( "content",  $('#' + this.id).data("ref")   )
+						// }).appendTo('.content-results')
+
+						// var innerID = id + '-inner'
+
+				  //   $('<div/>', {
+						// 	'class': 'result-item-inner',
+						// 	'id':innerID,
+						// 	'text': contentName
+						// }).appendTo('#' + id)
+
+				  //   $('<div/>', {
+						// 	'class': 'result-item-inner-rest'
+						// }).appendTo('#' + innerID)
+				  //   $('<div/>', {
+						// 	'class': 'result-item-inner-top',
+						// }).appendTo('#' + innerID)
+
+
 
 		} else {
 			$('.content-results').replaceWith( $('<p>no content results for this search</p>') )

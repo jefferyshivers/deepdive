@@ -67,9 +67,14 @@ function searchQuery() {
 
   $('<div/>', {
   	'class':'results-inner-top',
-		'text':'Content',
+		'text':'Contents',
 		'style':'color:rgb(220,220,220)'
 	}).appendTo('.search-page-main')	
+  $('<a/>', {
+		'text':'view all',
+		'href':'/',
+		'style':'margin-left: 20px; font-size:10pt;'
+	}).appendTo('.results-inner-top')
 
   $('<div/>', {
 		'class':'content-results'
