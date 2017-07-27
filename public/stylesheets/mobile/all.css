@@ -1,0 +1,60 @@
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background: rgb(240,240,240);
+  background: rgb(40,40,40);
+  font-family: 'Rajdhani', sans-serif;
+  color: rgb(80,80,80);
+  /* remove the blue flash from slow links */
+  -webkit-tap-hightlight-color: rgba(0,0,0,0) 
+  /*smooth scrolling*/
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(0,200,255);
+}
+
+img {
+  padding: 0;
+  margin: 0;
+}
+
+iframe {
+  border:none;
+}
+
+.material-icon {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24pt;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  z-index: 40;
+  color: rgb(200,200,200);
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+  ::-webkit-scrollbar {
+      width: 0px;  /* remove scrollbar space */
+      background: transparent;
+      display: none;
+  }

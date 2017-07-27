@@ -1,0 +1,702 @@
+
+
+
+/*MAIN DIV (page minus nav)*/
+.main {
+	clear: both;
+	position: absolute;
+	float: left;
+	top: 50px;
+	width: 100%;
+	height: calc(100% - 50px);
+	z-index: 10;
+	background: rgb(220,220,220);
+	overflow: hidden;
+	background: rgb(80,80,80);
+	background: rgb(40,40,40);
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+.main > .left-gutter {
+	position: relative;
+	float: left;
+	top: 0;
+	width: calc((100% - 1000px) / 2);
+	height: 100%;
+}
+
+.main > .body {
+	position: relative;
+	float: left;
+	top: 0;
+	left: 0;
+	width: 100%;
+	max-width: 1000px;
+	height: 100%;
+	max-height: 1000px;
+	overflow: hidden;
+}
+
+.main > .body > .left-nav {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	width: 200px;
+	height: calc(100% - 0px);
+	min-height: 400px;
+	background: rgb(60,60,60);	
+	color: white;
+	box-shadow: rgba(20,20,20,.3) 10px 0px 10px;
+}
+
+.main > .body > .left-nav > .top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 160px;
+}
+.main > .body > .left-nav > .top > .artist-icon-container{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.main > .body > .left-nav > .top > .artist-icon-container > .artist-icon {
+	position: relative;
+	width: calc(100% - 4px);
+	height: calc(100% - 4px);
+	border-radius: 0px;
+	border: 2px solid rgb(20,20,20);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.main > .body > .left-nav > .top > .bottom-sep {
+	position: absolute;
+	left: 10px;
+	top: 150px;
+	width: calc(100% - 20px);
+	height: 10px;
+	/*border-bottom: 2px solid rgb(140,140,140);*/
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.main > .body > .left-nav > .rest {
+	position: absolute;
+	left: 0;
+	top: 160px;
+	width: 100%;
+	height: calc(100% - 160px);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+
+.main > .body > .left-nav > .rest 
+.other {
+	position: relative;
+	float: left;
+	width: 80%;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 10pt;
+}
+.main > .body > .left-nav > .rest .key {
+	position: relative;
+	float: left;
+	height: 100%;
+	display: flex;
+	align-items: center;	
+	justify-content: left;
+	color: rgb(220,220,220);
+}
+.main > .body > .left-nav > .rest .value {
+	position: relative;
+	float: left;
+	height: 100%;
+	display: flex;
+	align-items: center;	
+	justify-content: right;
+}
+
+
+.artist-platform-meta {
+	position: relative;
+	float: left;
+	width: 90%;
+	height: 50px;
+	border-top: 1px solid rgb(80,80,80);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.artist-platform-meta > .meta-icon {
+	position: relative;
+	float: left;
+	width: calc(100% / 3);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+
+
+
+
+.top-contributors {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100% - 120px);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+.top-contributors .rest-title {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: flex-start;
+	color: rgb(0,200,255);
+	color: white;
+	font-size: 10pt;
+	background: rgb(75,75,75);
+	z-index: 50;
+	box-shadow: rgba(40,40,40,.5) 0 4px 4px;
+}
+.top-contributors .rest-title .title-top {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 40px;
+	font-size: 11pt;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(220,220,220);	
+}
+.top-contributors .rest-title .title-level {
+	position: relative;
+	float: left;
+	width: 40px;
+	height: 19px;
+	font-size: 9pt;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(180,180,180);
+	border-bottom: 1px solid rgb(80,80,80);
+}
+.top-contributors .rest-title .title-username {
+	position: relative;
+	float: left;
+	left: 50px;
+	width: calc(100% - 100px);
+	height: 19px;
+	font-size: 8pt;
+	padding-left: 10px;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	color: rgb(180,180,180);
+	border-bottom: 1px solid rgb(80,80,80);
+
+}
+
+
+
+
+.top-contributors .cont-rest {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100% - 60px);
+	padding-bottom: 120px;
+}
+.top-contributors .cont-rest > .inner {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: calc(100% - 0px);
+	margin-bottom: 0px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.top-contributors .cont-rest > .inner > .other-rank {
+	position: relative;
+	float: left;
+	top: 0;
+	width: 100%;
+	height: 65px;
+	border-bottom: 1px solid rgb(40,40,40);
+	display: flex;
+	justify-content: left;
+	align-items: center;
+}
+
+
+.other-rank > .rank {
+	position: relative;
+	float: left;
+	width: 40px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(220,220,220);
+	font-size: 10pt;
+}
+
+
+.other-rank > .left {
+	position: relative;
+	float: left;
+	width: 50px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.other-rank > .left > .icon {
+	position: relative;
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background: white;
+	overflow:hidden;
+	z-index:49;
+}
+
+.other-rank > .name {
+	position: relative;
+	float: left;
+	width: calc(100% - 90px);
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding-left: 10px;
+	font-size: 10pt;
+}
+
+
+
+.main > .body > .inner-body {
+	position: absolute;
+	left: 210px;
+	top: 25px;
+	width: calc(100% - 220px);
+	min-width: 400px;
+	height: calc(100% - 25px);
+	overflow: hidden;
+}
+
+.main > .body > .inner-body > .top {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-width: 600px;
+	height: 100px;
+	overflow: hidden;
+	box-shadow: rgba(30,30,30,.8) 0px 2px 4px;
+	z-index: 11;
+	display: flex;
+	justify-content: center;
+}
+
+.main > .body > .inner-body > .top > .meta {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 90px;
+	color: rgb(0,200,255);
+	font-size: 36pt;
+	padding-left: 20px;
+	font-family: 'Rajdhani', sans-serif;	
+}
+.main .meta > .name {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 60px;
+}
+.main .meta > .genre {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 30px;
+	color: rgb(120,120,120);
+	font-size: 18pt;
+}
+
+
+
+
+
+.main > .body > .inner-body > .top > .sort-selection {
+	position: absolute;
+	top: 0;
+	left: 0;
+	float: left;
+	width: 100%;
+	height: 90px;
+	overflow: visible;
+	display: flex;
+	align-items: flex-end;
+	justify-content: right;
+}
+.sort-selection > .selection {
+	position: absolute;
+	right: 0;
+	float: right;
+	width: 135px;
+	height: 30px;
+	cursor: pointer;
+	/*background: blue;*/
+}
+.sort-selection > .search-artist-query {
+	position: absolute;
+	float; left;
+	width: 50%;
+	max-width: 400px;
+	min-width: 100px;
+	height: 40%;
+}
+
+.search {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	margin-left: 20px;
+	margin-right: 20px;
+	border-radius: 25px;
+	border: 1px solid rgb(200,200,200);
+	height: 100%;
+	overflow: hidden;
+}
+.search > .search-icon {
+	position: relative;
+	float: left;
+	width: 39px;
+	height: 100%;
+	border-right: 1px solid rgb(200,200,200);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background: rgb(250,250,250);
+	background: transparent;
+}
+.search .material-icon {
+	font-size: 14pt;
+	color: rgb(220,220,220);
+}
+.search .search-field {
+	position: relative;
+	float: left;
+	width: calc(100% - 50px);
+	padding-left: 10px;
+	height: 100%;
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	cursor: text;
+	overflow: hidden;
+	font-size: 10pt;
+	background: transparent;
+	color: rgb(220,220,220);
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+.sort-selection > .selection > .selection-text {
+	position: relative;
+	float: left;
+	width: 90px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(220,220,220);
+	font-size: 10pt;
+}
+.sort-selection > .selection > .dropdown-icon {
+	position: relative;
+	float: left;
+	width: 35px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.dropdown-icon > .material-icon {
+	color: white;
+}
+
+.main .inner-body > .top > .button-container {
+	position: relative;
+	width: 70%;
+	max-width: 400px;
+	top: 100px;
+	height: calc(100% - 100px);
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;	
+}
+.main .inner-body > .top > .button-container > .button {
+	position: relative;
+	width: 125px;
+	height: calc(100% - 2px);
+	margin: 0 auto;
+	border-radius: 2px solid transparent;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(220,220,220);
+}
+.main .inner-body > .top > .button-container > .button:hover {
+	color: white;
+}
+
+.main .button-container #contributions {
+	border-bottom: 2px solid gray;
+	color: white;
+}
+
+.main .button-container #collections {
+	border-bottom: 2px solid transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main > .body > .inner-body > .contents {
+	position: relative;
+	top: 100px;
+	float: middle;
+	width: 100%;
+	min-width: 600px;
+	height: calc(100% - 110px);
+	overflow-y: scroll;
+	justify-content: flex-start;
+	overflow: scroll;
+
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-justify-content: center;
+	justify-content: center;
+	/* You can set flex-wrap and flex-direction individually */
+
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	/* Or do it all in one line with flex flow */
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+
+	/* tweak the where items line up on the row */
+	/* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+	-webkit-align-content: flex-start;
+	align-content: flex-start;
+
+}
+
+
+
+
+
+
+
+
+
+.main > .body > .inner-body > .contents > .content-item {
+	position: relative;
+	float: left;
+	width: 90%;
+	height: 150px;	
+	box-shadow: rgb(80,80,80) 0px 0px 4px;
+	background: rgb(80,80,80);
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: block;
+	color: white;
+}
+
+
+
+
+.contents .content-left {
+	position: relative;
+	float: left;
+	width: calc((100% - 400px) / 2);
+	min-width: 100px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.content-left > .inner-div {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 150px;
+}
+.content-left > .inner-div > .micro {
+	position: relative;
+	float: left;
+	width: 100px;
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+
+
+.main > .body > .inner-body > .contents > .youtube-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	height: 250px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: block;
+	color: white;
+}
+
+.contents .content-right {
+	position: relative;
+	float: left;
+	width: calc((100% - 400px) / 2);
+	min-width: 50px;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	font-size: 10pt;
+}
+
+
+
+
+
+
+.main > .body > .inner-body > .contents > .imgur-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	height: 250px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: block;
+	color: white;
+}
+
+
+.main > .body > .inner-body > .contents > .twitter-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: block;
+	color: white;
+}
+
+.twitter-mid {
+	position: relative;
+	float: left;
+	width: 400px;
+}
+
+
+
+
+.main > .body > .inner-body > .contents > .instagram-content-item {
+	position: relative;
+	float: left;
+	width: 100%;
+	min-width: 600px;
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin: 15px;
+	display: block;
+	color: white;
+}
+
+.instagram-mid {
+	position: relative;
+	float: left;
+	width: 400px;
+}
