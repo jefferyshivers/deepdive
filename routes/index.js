@@ -1,6 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
+
+
+
+
+// // maintenance
+// router.get('/', function(req, res, next) {
+//   res.render('maintenance', { title: 'DeepDive - maintenance' });
+// });
+// maintenance
+router.get('/*', function(req, res, next) {
+  res.render('maintenance', { title: 'DeepDive - maintenance' });
+});
+
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'DeepDive' });
