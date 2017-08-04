@@ -17,7 +17,6 @@ $('.add-container').click(function(event){
 	}
 })
 
-
 $('#add-form-content-button').click(function(){
 	console.log('content')
 	$('.add-form .content').css({
@@ -57,8 +56,6 @@ $('#add-form-moment-button').click(function(){
 	})
 })
 
-
-
 $('#add-form-add-moment-button').click(function(){
 	let artist = document.getElementById('add-form-moment-artist_query').value
 	artist = artist.toLowerCase()
@@ -66,7 +63,6 @@ $('#add-form-add-moment-button').click(function(){
 	suggestMoment(artist,moment)
 	document.getElementById('add-form-moment-artist_query').value = ""
 	document.getElementById('add-form-moment-moment_query').value = ""
-
 
 	$('.add-container').css({
 		'z-index':0,
@@ -86,7 +82,6 @@ $('.add-container .moment').keypress(function(e) {
 		document.getElementById('add-form-moment-artist_query').value = ""
 		document.getElementById('add-form-moment-moment_query').value = ""
 
-
 		$('.add-container').css({
 			'z-index':0,
 			'visibility':'hidden',
@@ -94,7 +89,6 @@ $('.add-container .moment').keypress(function(e) {
 		$('.top-nav .add-content .material-icon').css({
 			'color':'rgb(80,80,80)'
 		})
-
 	}
 });
 
@@ -139,11 +133,6 @@ function suggestMoment(artist,moment) {
 	})
 }
 
-
-
-
-
-
 $('#add-form-add-content-button').click(function(){
 	let artist = document.getElementById('add-form-content-artist_query').value
 	artist = artist.toLowerCase()
@@ -171,8 +160,6 @@ $('#add-form-add-content-button').click(function(){
 	document.getElementById('add-form-content-platform_query').value = ""
 	document.getElementById('add-form-content-title_query').value = ""
 
-
-
 	$('.add-container').css({
 		'z-index':0,
 		'visibility':'hidden',
@@ -180,8 +167,6 @@ $('#add-form-add-content-button').click(function(){
 	$('.top-nav .add-content .material-icon').css({
 		'color':'rgb(80,80,80)'
 	})
-
-
 })
 
 $('.add-container .content').keypress(function(e) {
@@ -212,8 +197,6 @@ $('.add-container .content').keypress(function(e) {
 		document.getElementById('add-form-content-platform_query').value = ""
 		document.getElementById('add-form-content-title_query').value = ""
 
-
-
 		$('.add-container').css({
 			'z-index':0,
 			'visibility':'hidden',
@@ -221,15 +204,12 @@ $('.add-container .content').keypress(function(e) {
 		$('.top-nav .add-content .material-icon').css({
 			'color':'rgb(80,80,80)'
 		})
-
-					
 	}
 });
 
 
 function addContent(artist, moment, url, type, platform, contentName) {
 
-	
 	var dbArtists = firebase.database().ref('artists')
 
 	dbArtists.on('value', function(snapshot) {
@@ -271,18 +251,4 @@ function addContent(artist, moment, url, type, platform, contentName) {
 			console.log('Sorry, but this artist is not even in the database.')
 		}
 	})
-
 } 
-
-
-console.log()
-
-// addContent('sza', 'sza test moment', 'https://youtu.be/hHXfCOjb3fk', 'video' , 'youtube', 'sza zzzsa')
-
-
-// addContent('sza', 'hairstyle', 'https://youtu.be/SHsIQYcdia4', 'video' , 'youtube', 'sza inspired hairstyle')
-// addContent('sza', 'sza test moment', 'https://youtu.be/pOB_mEnX3vE', 'video' , 'youtube', 'SZA Cover')
-// addContent('drake', 'relationship with rihanna', 'https://youtu.be/RubBzkZzpUA', 'video' , 'youtube', 'rihanna drake')
-// addContent('drake', 'paddy', 'https://youtu.be/RubBzkZzpUA', 'video' , 'youtube', 'daddy drake')
-// addContent('justin bieber', 'popopo', 'https://youtu.be/RubBzkZzpUA', 'video' , 'youtube', 'bieber cover justin')
-// addContent('frank ocean', 'test', 'https://youtu.be/6ohakZ5wYu8', 'video' , 'youtube', 'dope frank ocean')

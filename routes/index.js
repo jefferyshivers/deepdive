@@ -10,9 +10,9 @@ var router = express.Router();
 //   res.render('maintenance', { title: 'DeepDive - maintenance' });
 // });
 // maintenance
-router.get('/*', function(req, res, next) {
-  res.render('maintenance', { title: 'DeepDive - maintenance' });
-});
+// router.get('/*', function(req, res, next) {
+//   res.render('maintenance', { title: 'DeepDive - maintenance' });
+// });
 
 
 /* GET home page. */

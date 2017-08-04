@@ -1,13 +1,12 @@
 
 
-
+// a temporary list of exceptions for names with unusual characters (i.e. '_')
 var name_exceptions = {
 	'yo yo ma': 'yo-yo ma'
 }
 
 function load_artist_page() {
 	var artist_name = window.location.pathname.replace(/\-/g," ").replace("/","")
-
 
 	var db = firebase.database().ref('artists')
 	db.once('value').then(function(snapshot) {
@@ -59,8 +58,7 @@ function load_artist_page() {
 	    	'style':'position:relative;top:5px;width:50%;height:auto;'
 			}).appendTo('#meta-icon-three')
 
-
-		  // var storage = firebase.storage()
+		// var storage = firebase.storage()
 	    // var storageRef = storage.ref('artist-pics')
 			// var artistPic = storageRef.child(artist_name.replace(" ","-") + '.png');
 			var artistPic = '/images/' + name_hyphenated + '.png'
@@ -200,19 +198,15 @@ function load_artist_page() {
 
 								// var src = 'https://www.youtube.com/embed/' + content_obj['url']
 
-
 // <iframe width="100%" height="450" scrolling="no" frameborder="no" 
 // src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/215638478&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
 // </iframe>
-
-
 								/// left section
 
 								$('<div/>', {
 						    	'class':'imgur-content-item',
 						    	'id':key
 								}).appendTo('.inner-body .contents')
-
 
 								var content_left_id = key + 'content-left'
 								$('<div/>', {
@@ -275,8 +269,6 @@ function load_artist_page() {
 						    	// 'text':'lk'
 								}).appendTo('#' + like_id)
 
-
-
 							// audio section
 							var src = content_obj['url']
 							var block_id = key + '-block'
@@ -284,8 +276,6 @@ function load_artist_page() {
 								'src':src,
 								'style':'width:400px; height:250px; scrolling:no; frameborder:no;'
 							}).appendTo('#' + key)
-
-
 
 							} else {
 
@@ -359,9 +349,6 @@ function load_artist_page() {
 							    	'text':'favorite'
 							    	// 'text':'lk'
 									}).appendTo('#' + like_id)
-
-
-
 
 									// tweet section
 									var mid_id = key + '-mid'
@@ -471,7 +458,6 @@ function load_artist_page() {
 					users_keys = Object.keys(val)
 					for (i=0;i<users_keys.length;i++){
 
-
 						var key = users_keys[i]
 						var user_obj = val[key]
 						var username = user_obj['username']
@@ -482,9 +468,6 @@ function load_artist_page() {
 				    	'id':this_id
 						}).appendTo('.cont-rest .inner')
 
-
-
-
 						var fake_rank = Math.floor((13 - i*0.7) + 0.7)
 						var this_rank_id = this_id + '-rank'
 						$('<div/>', {
@@ -492,9 +475,6 @@ function load_artist_page() {
 				    	'id':this_rank_id,
 				    	'text':fake_rank
 						}).appendTo('#' + this_id)
-
-
-
 
 						// icon
 						var this_left_id = this_id + '-left'
@@ -525,9 +505,6 @@ function load_artist_page() {
 
 					}
 
-
-
-
 					for (i=0;i<users_keys.length;i++){
 						var key = users_keys[i]
 						var user_obj = val[key]
@@ -546,11 +523,8 @@ function load_artist_page() {
 							}).appendTo('#' + this_icon_id)
 
 						})
-
 					}
-
 				})
-
 
 		} else {
 			window.location = 'bad-path'

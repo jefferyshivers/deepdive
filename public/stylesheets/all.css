@@ -53,8 +53,8 @@ iframe {
 }
 
 
-  ::-webkit-scrollbar {
-      width: 0px;  /* remove scrollbar space */
-      background: transparent;
-      display: none;
-  }
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;
+    display: none;
+}
